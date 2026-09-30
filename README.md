@@ -123,7 +123,7 @@ mv TruckDash.exe ~/truckdash/
 
 ## 4) Create desktop entries for TruckDash
 
-Download the zip from this repository's releases page and extract it.
+Download the desktop entires from the releases of this repo
 
 Make sure to edit the `.desktop` files and replace `YOURUSER` with your Linux username.
 
@@ -195,5 +195,3 @@ Regular Proton or Proton Experimental usually lives here:
 - Use the correct Steam compatibility data path for the game you are launching.
 - Ensure the path to `TruckDash.exe` and Proton matches your system.
 - Some setups may require adjusting the username path or Proton install location.
-
-If you want, I can also rewrite this README into a more polished GitHub-style version with a short project intro, install instructions, and a cleaner table of launch options.
