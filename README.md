@@ -39,6 +39,7 @@ WINEPREFIX="/home/YOURUSER/TruckersMP/" wine "/home/YOURUSER/Downloads/TruckersM
 ```
 
 Let the installer finish. When the TruckersMP launcher opens, close it once it reaches the main menu and close the terminal window as well.
+![Main Menu](TMP-main.png)
 
 The launcher will be installed in:
 
@@ -96,6 +97,7 @@ Z:\home\YOURUSER\.local\share\Steam\steamapps\common\American Truck Simulator\
 ```
 
 You can also add `-nointro` to both launch options if you want.
+![TMP Gamepaths](TMP-Gamepaths.png)
 
 ## 3) Set up TruckDash
 
