@@ -38,7 +38,7 @@ WINEPREFIX="/home/YOURUSER/TruckersMP/" wine "/home/YOURUSER/Downloads/TruckersM
 ```
 
 Let the installer finish. When the TruckersMP launcher opens, close it once it reaches the main menu and close the terminal window as well.
-![Main Menu](TMP-main.png)
+![Main Menu](images/TMP-main.png)
 
 The launcher will be installed in:
 
@@ -96,7 +96,7 @@ Z:\home\YOURUSER\.local\share\Steam\steamapps\common\American Truck Simulator\
 ```
 
 You can also add `-nointro` to both launch options if you want.
-![TMP Gamepaths](TMP-Gamepaths.png)
+![TMP Gamepaths](images/TMP-Gamepaths.png)
 
 ## 3) Set up TruckDash
 
@@ -168,7 +168,7 @@ These commands make the `.desktop` files executable and place copies in both you
 
 After creating the desktop entries, open either TruckDash (ATS) or TruckDash (ETS2)  and click the **Add game folder** button to configure the game paths for Euro Truck Simulator 2 and American Truck Simulator. You only need to do this once.
 
-![TruckDash Menu](TruckDashMenu.png)
+![TruckDash Menu](images/TruckDashMenu.png)
 
 For each game, set the path to the game installation directory:
 
@@ -177,7 +177,7 @@ For each game, set the path to the game installation directory:
 
 Replace `YOURUSER` with your Linux username.
 
-![TruckDash Game Paths Configuration](TruckDashGamepaths.png)
+![TruckDash Game Paths Configuration](images/TruckDashGamepaths.png)
 
 Once configured, TruckDash will be able to connect to the correct game instance when you launch it.
 
