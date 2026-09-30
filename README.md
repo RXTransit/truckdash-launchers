@@ -123,6 +123,23 @@ Move the executable into that folder:
 mv TruckDash.exe ~/truckdash/
 ```
 
+### Configure ETS2 and ATS game paths in TruckDash
+
+When you first run TruckDash, you need to specify the game paths for Euro Truck Simulator 2 and American Truck Simulator. Open TruckDash and navigate to the settings menu to configure the game paths.
+
+![TruckDash Menu](TruckDashMenu.png)
+
+For each game, set the path to the game installation directory:
+
+- **Euro Truck Simulator 2**: `/home/YOURUSER/.local/share/Steam/steamapps/common/Euro Truck Simulator 2/`
+- **American Truck Simulator**: `/home/YOURUSER/.local/share/Steam/steamapps/common/American Truck Simulator/`
+
+Replace `YOURUSER` with your Linux username.
+
+![TruckDash Game Paths Configuration](TruckDashGamepaths.png)
+
+Once configured, TruckDash will be able to connect to the correct game instance when you launch it.
+
 ## 4) Create desktop entries for TruckDash
 
 Download the desktop entires from the releases of this repo
@@ -136,7 +153,7 @@ Example launcher file for ETS2:
 Type=Application
 Name=Truck Dash (ETS2)
 Comment=Truck Dash client for Euro Truck Simulator 2 (start the game first)
-Exec=env STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/compatdata/227300" STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/YOURUSER/.local/share/Steam" "/home/YOURUSER/.local/share/Steam/compatibilitytools.d/Proton-GE Latest/proton" run "/home/YOURUSER/truckdash/TruckDash.exe"
+Exec=env STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/compatdata/227300" STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/YOURUSER/.local/share/Steam" "/home/YOURUSER/.local/share/S[...]
 Terminal=false
 Categories=Game;
 StartupNotify=false
@@ -149,7 +166,7 @@ Example launcher file for ATS:
 Type=Application
 Name=Truck Dash (ATS)
 Comment=Truck Dash client for American Truck Simulator (start the game first)
-Exec=env STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/compatdata/270880" STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/YOURUSER/.local/share/Steam" "/home/YOURUSER/.local/share/Steam/compatibilitytools.d/Proton-GE Latest/proton" run "/home/YOURUSER/truckdash/TruckDash.exe"
+Exec=env STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/compatdata/270880" STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/YOURUSER/.local/share/Steam" "/home/YOURUSER/.local/share/S[...]
 Terminal=false
 Categories=Game;
 StartupNotify=false
