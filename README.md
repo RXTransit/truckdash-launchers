@@ -123,23 +123,6 @@ Move the executable into that folder:
 mv TruckDash.exe ~/truckdash/
 ```
 
-### Configure ETS2 and ATS game paths in TruckDash
-
-When you first run TruckDash, you need to specify the game paths for Euro Truck Simulator 2 and American Truck Simulator. Open TruckDash and navigate to the settings menu to configure the game paths.
-
-![TruckDash Menu](TruckDashMenu.png)
-
-For each game, set the path to the game installation directory:
-
-- **Euro Truck Simulator 2**: `/home/YOURUSER/.local/share/Steam/steamapps/common/Euro Truck Simulator 2/`
-- **American Truck Simulator**: `/home/YOURUSER/.local/share/Steam/steamapps/common/American Truck Simulator/`
-
-Replace `YOURUSER` with your Linux username.
-
-![TruckDash Game Paths Configuration](TruckDashGamepaths.png)
-
-Once configured, TruckDash will be able to connect to the correct game instance when you launch it.
-
 ## 4) Create desktop entries for TruckDash
 
 Download the desktop entires from the releases of this repo
@@ -181,6 +164,23 @@ cp -a truckdash-* /home/YOURUSER/Desktop/
 ```
 
 These commands make the `.desktop` files executable and place copies in both your application menu and your desktop.
+
+### Configure ETS2 and ATS game paths in TruckDash
+
+After creating the desktop entries, open TruckDash and click the **Add game folder** button to configure the game paths for Euro Truck Simulator 2 and American Truck Simulator. You only need to do this once.
+
+![TruckDash Menu](TruckDashMenu.png)
+
+For each game, set the path to the game installation directory:
+
+- **Euro Truck Simulator 2**: `/home/YOURUSER/.local/share/Steam/steamapps/common/Euro Truck Simulator 2/`
+- **American Truck Simulator**: `/home/YOURUSER/.local/share/Steam/steamapps/common/American Truck Simulator/`
+
+Replace `YOURUSER` with your Linux username.
+
+![TruckDash Game Paths Configuration](TruckDashGamepaths.png)
+
+Once configured, TruckDash will be able to connect to the correct game instance when you launch it.
 
 ## 5) Useful Proton paths
 
