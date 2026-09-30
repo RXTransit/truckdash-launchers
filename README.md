@@ -1,56 +1,135 @@
-How to run TruckDash on Linux under Proton for ETS2/ATS and TruckersMP as well.  For purposes of this guide, I will assume you have a native steam install, and have installed Proton-GE Latest using protonplus and have 7zip installed
-$ refers to a command run in terminal
-and a tilde or "~" refers to your home folder which when expanded would be /home/YOURUSER/
+# TruckDash Launchers for Linux
 
-First let us set up TruckersMP, go to their website https://truckersmp.com/ and download the executable. 
+This guide explains how to run TruckDash on Linux under Proton for ETS2/ATS and TruckersMP.
 
-Create a folder in your home directory for the install with mkdir -p ~/TruckersMP
+The goal is to create launchers that work correctly in Steam with Proton and compatible launch paths for both Euro Truck Simulator 2 and American Truck Simulator.
 
-Install Wine, ProtonPlus and Winetricks using your package manager (Arch Linux: sudo pacman -S wine winetricks protonplus 7zip)
+## Assumptions
 
-In terminal type this command $ WINEPREFIX="/home/YOURUSER/TruckersMP/" wine "/home/Downloads/TruckersMP-Setup.exe" 
+- You have a native Steam installation.
+- You have installed Proton-GE Latest.
+- You are using Linux with a regular home folder (for example, `/home/YOURUSER`).
+- `$` in commands means "run this in a terminal".
+- `~` means your home directory.
 
-If where you downloaded the exe is different, substitute accordingly. also replace YOURUSER with your linux username. 
+## 1) Install the required tools
 
-Let the terminal do it's thing until TruckersMP Launcher is installed and you are presented with the main menu. Then close the menu and that terminal.
+Install Wine, ProtonPlus, Winetricks, and 7zip using your package manager.
 
-For future reference, the app is now located at /home/YOURUSER/TruckersMP/drive_c/users/YOURUSER/AppData/Local/TruckersMP/TruckersMP-Launcher.exe
+### Arch Linux
 
-You will notice Wine has created Desktop shortcuts too, please remove them with 
+```bash
+sudo pacman -S wine winetricks protonplus 7zip
+```
 
+## 2) Set up TruckersMP
+
+### Step 1: Create a folder for the Windows prefix
+
+```bash
+mkdir -p ~/TruckersMP
+```
+
+### Step 2: Install TruckersMP using Wine
+
+Replace `YOURUSER` with your Linux username and adjust the download path if needed.
+
+```bash
+WINEPREFIX="/home/YOURUSER/TruckersMP/" wine "/home/YOURUSER/Downloads/TruckersMP-Setup.exe"
+```
+
+Let the installer finish. When the TruckersMP launcher opens, close it once it reaches the main menu and close the terminal window as well.
+
+The launcher will be installed in:
+
+```bash
+/home/YOURUSER/TruckersMP/drive_c/users/YOURUSER/AppData/Local/TruckersMP/TruckersMP-Launcher.exe
+```
+
+### Step 3: Remove the Wine-created shortcuts
+
+```bash
 rm -rf ~/.local/share/applications/wine/Programs/TruckersMP
+```
 
-In steam, add TruckersMP as a non steam game twice, using the path /home/YOURUSER/TruckersMP/drive_c/users/YOURUSER/AppData/Local/TruckersMP/TruckersMP-Launcher.exe
+### Step 4: Add TruckersMP to Steam twice
 
-The first entry should be renamed TruckersMP (ATS), and the second entry TruckersMP (ETS2)
+In Steam, add TruckersMP as a non-Steam game twice. Use this path for both entries:
 
-right click those non-steam games and click properties. 
+```bash
+/home/YOURUSER/TruckersMP/drive_c/users/YOURUSER/AppData/Local/TruckersMP/TruckersMP-Launcher.exe
+```
 
-launch options for the ATS version will be STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/steam/steamapps/compatdata/270880" %command%
-launch options for the ETS2 version will be STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/steam/steamapps/compatdata/227300" %command%
+Rename them like this:
 
-both shall have forced compatibility to Proton-GE Latest
+- `TruckersMP (ATS)`
+- `TruckersMP (ETS2)`
 
-This essentially runs the TruckersMP launcher in ETS2 and ATS prefixes respectively allowing it to read both saves. 
+For each of those games:
 
-when you open the TruckersMP launchers, you will need to specify the game paths for both ETS2 and ATS, please copy both below and paste into their fields, and replace YOURUSER with your linux username. 
+- Right-click the entry
+- Select Properties
+- Set the compatibility to Proton-GE Latest
+- Add the launch options below
 
+#### TruckersMP (ATS)
+
+```bash
+STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/steam/steamapps/compatdata/270880" %command%
+```
+
+#### TruckersMP (ETS2)
+
+```bash
+STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/steam/steamapps/compatdata/227300" %command%
+```
+
+This makes the TruckersMP launcher run inside the correct ETS2 or ATS Proton prefix so it can read the appropriate save data.
+
+### Step 5: Configure game paths inside TruckersMP
+
+When the TruckersMP launcher opens, set the game paths for both games. Use these exact entries and replace `YOURUSER` with your Linux username:
+
+```text
 Z:\home\YOURUSER\.local\share\Steam\steamapps\common\Euro Truck Simulator 2\
 Z:\home\YOURUSER\.local\share\Steam\steamapps\common\American Truck Simulator\
+```
 
-additionally you can add -nointro to both console options.
+You can also add `-nointro` to both launch options if you want.
 
-Now we must set up TruckDash.exe
+## 3) Set up TruckDash
 
-go to https://github.com/Nethercap/truck-companion and download the latest release
+Go to the official TruckDash release page and download the latest Windows release:
 
-open terminal and run $ 7z x TruckDash-windows.zip to extract the executable. 
-type in $ mkdir -p ~/truckdash
-and then $ mv TruckDash.exe /home/YOURUSER/truckdash/
+- https://github.com/Nethercap/truck-companion
 
-Now all we need is desktop entries for TruckDash for both ETS2 and ATS
-go to the releases page of this repo and download the zip and extract with 7z in terminal and make sure to edit the .desktop files and replace YOURUSER with your linux username, yes repetition is boring but I have to be clear. 
+Extract it in a terminal:
 
+```bash
+7z x TruckDash-windows.zip
+```
+
+Create a folder for the executable:
+
+```bash
+mkdir -p ~/truckdash
+```
+
+Move the executable into that folder:
+
+```bash
+mv TruckDash.exe ~/truckdash/
+```
+
+## 4) Create desktop entries for TruckDash
+
+Download the zip from this repository's releases page and extract it.
+
+Make sure to edit the `.desktop` files and replace `YOURUSER` with your Linux username.
+
+Example launcher file for ETS2:
+
+```ini
 [Desktop Entry]
 Type=Application
 Name=Truck Dash (ETS2)
@@ -59,7 +138,11 @@ Exec=env STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/com
 Terminal=false
 Categories=Game;
 StartupNotify=false
+```
 
+Example launcher file for ATS:
+
+```ini
 [Desktop Entry]
 Type=Application
 Name=Truck Dash (ATS)
@@ -68,20 +151,49 @@ Exec=env STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/com
 Terminal=false
 Categories=Game;
 StartupNotify=false
+```
 
-in terminal $ chmod +x truckdash-*
-in terminal $ cp -a truckdash-* /home/YOURUSER/.local/share/applications/ 
-and then $ cp -a truckdash-* /home/YOURUSER/Desktop/
+### Make the launchers executable and install them
 
-those three commands just made the .desktop entries executable, and copied to your applications folder and Desktop. 
+```bash
+chmod +x truckdash-*
+cp -a truckdash-* /home/YOURUSER/.local/share/applications/
+cp -a truckdash-* /home/YOURUSER/Desktop/
+```
 
-side note the "/home/YOURUSER/.local/share/Steam/compatibilitytools.d/Proton-GE Latest/proton" is where Proton-GE is installed.
-your normal Protons or Proton-Experimental will be in "/home/YOURUSER/.local/share/steam/steamapps/common/Proton - Experimental/proton"
+These commands make the `.desktop` files executable and place copies in both your application menu and your desktop.
 
-Order of Operations to get Truck Dash running in Singleplayer
+## 5) Useful Proton paths
 
-Run ETS2 or ATS, then run TruckDash (ETS2) or TruckDash (ATS)
+If needed, Proton-GE is usually installed here:
 
-Order of Operations to get Truck Dash running in TruckersMP
+```bash
+/home/YOURUSER/.local/share/Steam/compatibilitytools.d/Proton-GE Latest/proton
+```
 
-Run TruckersMP (ETS2) or TruckersMP (ATS), then run ETS2 or ATS within those launchers and then run TruckDash (ETS2) or TruckDash (ATS
+Regular Proton or Proton Experimental usually lives here:
+
+```bash
+/home/YOURUSER/.local/share/steam/steamapps/common/Proton - Experimental/proton
+```
+
+## 6) Recommended order of operations
+
+### Singleplayer
+
+1. Start ETS2 or ATS
+2. Run TruckDash (ETS2) or TruckDash (ATS)
+
+### TruckersMP
+
+1. Start TruckersMP (ETS2) or TruckersMP (ATS)
+2. Start ETS2 or ATS inside that launcher
+3. Run TruckDash (ETS2) or TruckDash (ATS)
+
+## Notes
+
+- Use the correct Steam compatibility data path for the game you are launching.
+- Ensure the path to `TruckDash.exe` and Proton matches your system.
+- Some setups may require adjusting the username path or Proton install location.
+
+If you want, I can also rewrite this README into a more polished GitHub-style version with a short project intro, install instructions, and a cleaner table of launch options.
