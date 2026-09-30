@@ -9,7 +9,6 @@ The goal is to create launchers that work correctly in Steam with Proton and com
 - You have a native Steam installation.
 - You have installed Proton-GE Latest.
 - You are using Linux with a regular home folder (for example, `/home/YOURUSER`).
-- `$` in commands means "run this in a terminal".
 - `~` means your home directory.
 
 ## 1) Install the required tools
@@ -167,7 +166,7 @@ These commands make the `.desktop` files executable and place copies in both you
 
 ### Configure ETS2 and ATS game paths in TruckDash
 
-After creating the desktop entries, open TruckDash and click the **Add game folder** button to configure the game paths for Euro Truck Simulator 2 and American Truck Simulator. You only need to do this once.
+After creating the desktop entries, open either TruckDash (ATS) or TruckDash (ETS2)  and click the **Add game folder** button to configure the game paths for Euro Truck Simulator 2 and American Truck Simulator. You only need to do this once.
 
 ![TruckDash Menu](TruckDashMenu.png)
 
