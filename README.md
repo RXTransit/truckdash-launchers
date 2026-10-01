@@ -75,13 +75,13 @@ For each of those games:
 #### TruckersMP (ATS)
 
 ```bash
-STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/steam/steamapps/compatdata/270880" %command%
+STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/compatdata/270880" %command%
 ```
 
 #### TruckersMP (ETS2)
 
 ```bash
-STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/steam/steamapps/compatdata/227300" %command%
+STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/compatdata/227300" %command%
 ```
 
 This makes the TruckersMP launcher run inside the correct ETS2 or ATS Proton prefix so it can read the appropriate save data.
@@ -192,7 +192,7 @@ If needed, Proton-GE is usually installed here:
 Regular Proton or Proton Experimental usually lives here:
 
 ```bash
-/home/YOURUSER/.local/share/steam/steamapps/common/Proton - Experimental/proton
+/home/YOURUSER/.local/share/Steam/steamapps/common/Proton - Experimental/proton
 ```
 
 ## 6) Recommended order of operations
