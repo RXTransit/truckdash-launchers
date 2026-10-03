@@ -6,3 +6,4 @@ Exec=env STEAM_COMPAT_DATA_PATH="/home/YOURUSER/.local/share/Steam/steamapps/com
 Terminal=false
 Categories=Game;
 StartupNotify=false
+StartupWMClass=Proton
